@@ -413,7 +413,7 @@ services:
         - s3_minio
     entrypoint: >
         /bin/sh -c "
-        /usr/bin/mc config host add s3_minio http://host.docker.internal:9000 minio_admin minio_password;
+        /usr/bin/mc alias set s3_minio http://host.docker.internal:9000 minio_admin minio_password;
         /usr/bin/mc rm -r --force s3_minio/raw;
         /usr/bin/mc mb s3_minio/raw;
         /usr/bin/mc rm -r --force s3_minio/dbt;
